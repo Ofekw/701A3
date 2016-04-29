@@ -1,6 +1,8 @@
 package kalah;
 
 import java.security.InvalidParameterException;
+import java.util.Arrays;
+import java.util.stream.IntStream;
 
 public class PlayerBoard {
 
@@ -19,9 +21,7 @@ public class PlayerBoard {
 		board = new int[6];
 		//Get settings to define initial seed count
 		int seedCount = 4;
-		for (int i = 0; i < board.length; i++){
-			board[i] = seedCount;
-		}
+			Arrays.fill(board, seedCount);
 	}
 	
 	public void addSeed(int position, int count){
@@ -36,10 +36,13 @@ public class PlayerBoard {
 		board[position] -= count;
 	}
 	
-	public int getSeedCountAndClear(int position){
+	public int getSeedCount(int position){
 		int count = board[position];
-		board[position]= 0;
 		return count;
+	}
+	
+	public void clearHouse(int position){
+		board[position]= 0;
 	}
 	
 	public Player getPlayer(){
@@ -52,6 +55,10 @@ public class PlayerBoard {
 	
 	public int getScore(){
 		return this.score;
+	}
+
+	public int getHouseSeedCount() {
+		return IntStream.of(board).sum();
 	}
 	
 
