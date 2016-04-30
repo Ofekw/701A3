@@ -4,6 +4,8 @@ import java.security.InvalidParameterException;
 import java.util.Arrays;
 import java.util.stream.IntStream;
 
+import kalah.Config.Property;
+
 public class PlayerBoard {
 
 	private int[] board;
@@ -20,7 +22,7 @@ public class PlayerBoard {
 		//Get settings object to define board size;
 		board = new int[6];
 		//Get settings to define initial seed count
-		int seedCount = 4;
+		int seedCount = Config.getProperty(Property.STARTINGSEEDS);
 			Arrays.fill(board, seedCount);
 	}
 	
@@ -60,6 +62,5 @@ public class PlayerBoard {
 	public int getHouseSeedCount() {
 		return IntStream.of(board).sum();
 	}
-	
 
 }

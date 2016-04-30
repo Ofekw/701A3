@@ -5,6 +5,8 @@ import java.util.List;
 
 import com.qualitascorpus.testsupport.MockIO;
 
+import kalah.Config.Property;
+
 public class StandardMakalaGameRules implements GameRules {
 	
 	private MankalaGameBoard board;
@@ -33,33 +35,17 @@ public class StandardMakalaGameRules implements GameRules {
 		// Returns the next player to play
 		private PlayerBoard moveSeed(int origin){
 			PlayerBoard activeBoard = this.activePlayerBoard;
-
+			PlayerBoard nextPlayerBoard = getNextBoard(activeBoard);
 			int seedCount = this.activePlayerBoard.getSeedCount(origin);
 			this.activePlayerBoard.clearHouse(origin);
 			int position = origin+1;
 			for (int i = 0; i < seedCount; i++){
-				if (position > this.activePlayerBoard.getBoardSize()){
-					position = 0;
-					// outside of board boundaries add to score if player house
-					if(this.activePlayerBoard.getPlayer() == activeBoard.getPlayer()){
-						this.activePlayerBoard.incrementScore(1);
-					}else{
-						//Toggle boards
-						activeBoard = getNextBoard(activeBoard);
-						activeBoard.addSeed(position, 1);
-					}
-				}else{
-					// simply add a seed;
-					activeBoard.addSeed(position, 1);
-				}
 				// check if final seed
 				if (i == seedCount-1){
 					//Check for extra turn
-					if (position > activeBoard.getBoardSize()){
+					if (position >= Config.getProperty(Property.BOARDSIZE)){
 						if(this.activePlayerBoard.getPlayer() == activeBoard.getPlayer()){
-							return activeBoard;
-						}else{  //If position outside of playerboard and not players board (ie loop around)
-							return getNextBoard(activeBoard);
+							nextPlayerBoard = activeBoard;
 						}
 						// Crazy Mankala rule that captures opponents seeds
 					}else if(this.activePlayerBoard.getPlayer() == activeBoard.getPlayer()){
@@ -69,22 +55,38 @@ public class StandardMakalaGameRules implements GameRules {
 							if (nextBoard.getSeedCount(oppositePosition) > 0){
 								int oppositionSeeds = nextBoard.getSeedCount(oppositePosition);
 								nextBoard.clearHouse(oppositePosition);
-								int houseSeeds = this.activePlayerBoard.getSeedCount(position);
+								int houseSeeds = this.activePlayerBoard.getSeedCount(position)+1;
 								this.activePlayerBoard.clearHouse(position);
 								this.activePlayerBoard.incrementScore(houseSeeds + oppositionSeeds);
-								return nextBoard;
+								continue;
 							}
 						}
 					}
-					return getNextBoard(activeBoard);
 				}
+				
+				if (position >= Config.getProperty(Property.BOARDSIZE)){
+					position = -1;
+					// outside of board boundaries add to score if player house
+					if(this.activePlayerBoard.getPlayer() == activeBoard.getPlayer()){
+						this.activePlayerBoard.incrementScore(1);
+						activeBoard = getNextBoard(activeBoard);
+					}else{
+						//Toggle boards
+						activeBoard = getNextBoard(activeBoard);
+						activeBoard.addSeed(position, 1);
+					}
+				}else{
+					// simply add a seed;
+					activeBoard.addSeed(position, 1);
+				}
+
 				position++;
 			}
-			return null;
+			return nextPlayerBoard;
 		}
 		
 		private int getOppositePosition(int position) {
-			return this.activePlayerBoard.getBoardSize() - position;
+			return (Config.getProperty(Property.BOARDSIZE)-1) - position;
 		}
 
 		private PlayerBoard getNextBoard(PlayerBoard activeBoard) {

@@ -23,5 +23,10 @@ public class Player {
 	            return false;
 	        }
 	    }
+	 
+	 @Override
+	 public String toString(){
+		 return this.playerNumber+"";
+	 }
 
 }
