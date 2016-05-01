@@ -1,12 +1,12 @@
 package kalah;
 
-import java.security.InvalidParameterException;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.stream.IntStream;
 
 import kalah.Config.Property;
 
-public class PlayerBoard {
+public class PlayerBoard implements Comparable<PlayerBoard> {
 
 	private int[] board;
 	private int score;
@@ -20,7 +20,7 @@ public class PlayerBoard {
 	public void initilise() {
 		this.score = 0;
 		//Get settings object to define board size;
-		board = new int[6];
+		board = new int[Config.getProperty(Property.BOARDSIZE)];
 		//Get settings to define initial seed count
 		int seedCount = Config.getProperty(Property.STARTINGSEEDS);
 			Arrays.fill(board, seedCount);
@@ -61,6 +61,11 @@ public class PlayerBoard {
 
 	public int getHouseSeedCount() {
 		return IntStream.of(board).sum();
+	}
+
+	@Override
+	public int compareTo(PlayerBoard arg0) {
+		return getScore() - arg0.getScore();
 	}
 
 }

@@ -3,7 +3,11 @@ package kalah;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Collections;
+import java.util.List;
 import java.util.Properties;
+import java.util.TooManyListenersException;
+import java.util.stream.Collectors;
 
 import com.qualitascorpus.testsupport.IO;
 import com.qualitascorpus.testsupport.MockIO;
@@ -22,20 +26,42 @@ public class Kalah {
 		MankalaGameBoard board = new MankalaGameBoard(Config.getProperty(Property.PLAYERS));
 		StandardMakalaGameRules gamerules = new StandardMakalaGameRules(board);
 		boolean gameOn = true;
+		int move = -1;
 		while(gameOn){
 			printBoard(board, io);
-			int move = io.readInteger("Player P"+gamerules.getActivePlayer().getPlayer()+"'s turn - Specify house number or 'q' to quit:", 1, Config.getProperty(Property.BOARDSIZE), -1, "q");
+			move = io.readInteger("Player P"+gamerules.getActivePlayer().getPlayer()+"'s turn - Specify house number or 'q' to quit: ", 1, Config.getProperty(Property.BOARDSIZE), -1, "q");
 			if(move == -1){
-				io.println("Game over");
 				gameOn=false;
 			}else{
 				move--; //subtract 1 to allow move to be in range
-				gamerules.PlayTurn(move);
-				gameOn = !gamerules.isGameOver();
+				boolean validMove = gamerules.PlayTurn(move);
+				if (!validMove){
+					io.println("House is empty. Move again.");
+				}else{
+					gameOn = !gamerules.isGameOver();
+				}
 			}
 		}
-		//Reset
-		play(io);
+		
+		// If player quit
+		if (move == -1){
+			io.println("Game over");
+			printBoard(board, io);
+		}else{ // Otherwsise game ended
+			printBoard(board, io);					
+			io.println("Game over");
+			printBoard(board, io);
+			gamerules.calculateGameOverScore();
+			board.getPlayerBoards().forEach( b -> io.println("	player "+b.getPlayer()+":"+b.getScore()));
+			PlayerBoard winner = Collections.max(board.getPlayerBoards());
+			int highestScore = board.getPlayerBoards().stream().mapToInt( x -> x.getScore()).max().orElse(-1);
+			List<PlayerBoard> winners = board.getPlayerBoards().stream().filter( b -> b.getScore() == highestScore).collect(Collectors.toList());
+			if (winners.size()> 1){
+				io.print("A tie!");
+			}else{
+				io.println("Player " + winner.getPlayer()+ " wins!" );
+			}
+		}
 	}
 	private void printBoard(MankalaGameBoard board, IO io) {
 		PlayerBoard pb1 = board.getPlayerBoards().get(0);
@@ -46,7 +72,7 @@ public class Kalah {
 		row1 += "+----+";
 		row2 += "| P"+pb2.getPlayer().getPlayerNumber()+" |";
 		row3 += "|    |";
-		row4 += "|  "+pb2.getScore()+" |";
+		row4 += "| "+getFormattedScore(pb2.getScore())+" |";
 		row5 += "+----+";
 		
 		for (int i = 0; i < Config.getProperty(Property.BOARDSIZE); i++){
@@ -58,7 +84,7 @@ public class Kalah {
 		}
 		
 		row1 += "----+";
-		row2 += "  "+pb1.getScore()+" |";
+		row2 += " "+getFormattedScore(pb1.getScore())+" |";
 		row3 += "    |";
 		row4 += " P"+pb1.getPlayer().getPlayerNumber()+" |";
 		row5 += "----+";
@@ -72,6 +98,10 @@ public class Kalah {
 	}
 	
 	private String getFormattedScore(int score){
-		return (score < 9) ? " "+score : ""+score;
+		if (score > 9){
+			return ""+score;
+		}else{
+			return " "+score;
+		}
 	}
 }

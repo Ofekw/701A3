@@ -2,6 +2,8 @@ package kalah;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import com.qualitascorpus.testsupport.MockIO;
 
@@ -26,8 +28,13 @@ public class StandardMakalaGameRules implements GameRules {
 		this.activePlayerBoard = activePlayerBoard;
 	}
 	
-	public void PlayTurn(int move){
-		this.activePlayerBoard = moveSeed(move);
+	public boolean PlayTurn(int move){
+		if(this.activePlayerBoard.getSeedCount(move) > 0){
+			this.activePlayerBoard = moveSeed(move);
+			return true;
+		}else{
+			return false;
+		}
 	}
 
 	
@@ -65,12 +72,13 @@ public class StandardMakalaGameRules implements GameRules {
 				}
 				
 				if (position >= Config.getProperty(Property.BOARDSIZE)){
-					position = -1;
 					// outside of board boundaries add to score if player house
 					if(this.activePlayerBoard.getPlayer() == activeBoard.getPlayer()){
+						position = -1;
 						this.activePlayerBoard.incrementScore(1);
 						activeBoard = getNextBoard(activeBoard);
 					}else{
+						position = 0;
 						//Toggle boards
 						activeBoard = getNextBoard(activeBoard);
 						activeBoard.addSeed(position, 1);
@@ -94,7 +102,7 @@ public class StandardMakalaGameRules implements GameRules {
 			PlayerBoard board = this.board.getPlayerBoards().get(0); // base case get first
 			
 			for (PlayerBoard b : this.board.getPlayerBoards()){
-				if (b.getPlayer() == this.activePlayerBoard.getPlayer()){
+				if (b.getPlayer() == activeBoard.getPlayer()){
 					boardFound = true;
 				}else if (boardFound){
 					return b;
@@ -105,25 +113,22 @@ public class StandardMakalaGameRules implements GameRules {
 		}
 
 		public boolean isGameOver(){
-			for (PlayerBoard board : this.board.getPlayerBoards()){
-				if (board.getHouseSeedCount() == 0){
-					for (PlayerBoard board2 : this.board.getPlayerBoards()){
-						if (board2.getPlayer() != board.getPlayer()){
-							board2.incrementScore(board2.getHouseSeedCount());
-						}
-					}
-					return true;
-				}
+			if (this.activePlayerBoard.getHouseSeedCount() == 0){
+				return true;
 			}
 			return false;
 		}
 		
-		private int getContinousPosition(int position){
-			return position % 7; // % sizeOfBoard
-			
+		public boolean calculateGameOverScore(){
+			List<PlayerBoard> noMoreMoves = this.board.getPlayerBoards().stream().filter( b -> b.getHouseSeedCount() == 0).collect(Collectors.toList());;
+			if (noMoreMoves.size() > 0){
+				for (PlayerBoard board : this.board.getPlayerBoards()){
+					if (board.getPlayer() != noMoreMoves.get(0).getPlayer()){
+							board.incrementScore(board.getHouseSeedCount());
+						}
+					}
+					return true;
+				}
+			return false;
 		}
-
-
-		
-
 }
