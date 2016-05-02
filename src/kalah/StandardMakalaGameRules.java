@@ -1,21 +1,17 @@
 package kalah;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
-import com.qualitascorpus.testsupport.MockIO;
 
 import kalah.Config.Property;
 
 public class StandardMakalaGameRules implements GameRules {
 	
-	private MankalaGameBoard board;
+	private Board board;
 	private PlayerBoard activePlayerBoard;
 
 
-	public StandardMakalaGameRules(MankalaGameBoard board){
+	public StandardMakalaGameRules(Board board){
 		this.board = board;
 		this.activePlayerBoard = this.board.getPlayerBoards().get(0);
 	}
@@ -28,6 +24,7 @@ public class StandardMakalaGameRules implements GameRules {
 		this.activePlayerBoard = activePlayerBoard;
 	}
 	
+	@Override
 	public boolean PlayTurn(int move){
 		if(this.activePlayerBoard.getSeedCount(move) > 0){
 			this.activePlayerBoard = moveSeed(move);
@@ -111,7 +108,8 @@ public class StandardMakalaGameRules implements GameRules {
 			
 			return board;
 		}
-
+		
+		@Override
 		public boolean isGameOver(){
 			if (this.activePlayerBoard.getHouseSeedCount() == 0){
 				return true;
@@ -119,8 +117,9 @@ public class StandardMakalaGameRules implements GameRules {
 			return false;
 		}
 		
+		@Override
 		public boolean calculateGameOverScore(){
-			List<PlayerBoard> noMoreMoves = this.board.getPlayerBoards().stream().filter( b -> b.getHouseSeedCount() == 0).collect(Collectors.toList());;
+			List<MankalaPlayerBoard> noMoreMoves = this.board.getPlayerBoards().stream().filter( b -> b.getHouseSeedCount() == 0).collect(Collectors.toList());;
 			if (noMoreMoves.size() > 0){
 				for (PlayerBoard board : this.board.getPlayerBoards()){
 					if (board.getPlayer() != noMoreMoves.get(0).getPlayer()){
@@ -131,4 +130,32 @@ public class StandardMakalaGameRules implements GameRules {
 				}
 			return false;
 		}
+		
+		@Override
+		public List<MankalaPlayerBoard> getWinners(){
+			int highestScore = board.getPlayerBoards().stream().mapToInt( x -> x.getScore()).max().orElse(-1);
+			List<MankalaPlayerBoard> winners = board.getPlayerBoards().stream().filter( b -> b.getScore() == highestScore).collect(Collectors.toList());
+			return winners;
+		}
+		
+		@Override
+		public Board getBoard() {
+			return board;
+		}
+		
+		@Override
+		public void setBoard(Board board) {
+			this.board = board;
+		}
+		
+		@Override
+		public PlayerBoard getActivePlayerBoard() {
+			return activePlayerBoard;
+		}
+
+		@Override
+		public void setActivePlayerBoard(PlayerBoard activePlayerBoard) {
+			this.activePlayerBoard = activePlayerBoard;
+		}
+
 }

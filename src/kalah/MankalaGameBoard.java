@@ -3,22 +3,24 @@ package kalah;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MankalaGameBoard implements Board{
+public class MankalaGameBoard implements Board {
 	
 	public MankalaGameBoard(int boardCount){
 		for (int i = 1; i <= boardCount; i++){
-			PlayerBoard board = new PlayerBoard(new Player(i));
+			MankalaPlayerBoard board = new MankalaPlayerBoard(new Player(i));
 			this.boards.add(board);
 		}
 	}
 	
-	private List<PlayerBoard> boards = new ArrayList<PlayerBoard>();
+	private List<MankalaPlayerBoard> boards = new ArrayList<MankalaPlayerBoard>();
 	
-	public List<PlayerBoard> getPlayerBoards() {
+	@Override
+	public List<MankalaPlayerBoard> getPlayerBoards() {
 		return boards;
 	}
 
-	public void setBoards(List<PlayerBoard> boards) {
+	@Override
+	public void setBoards(List<MankalaPlayerBoard> boards) {
 		this.boards = boards;
 	}
 
