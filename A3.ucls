@@ -3,7 +3,7 @@
   associations="true" dependencies="true" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="kalah.Kalah" project="701_A3" file="/701_A3/src/kalah/Kalah.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="124" width="130" x="662" y="37"/>    
+    <position height="124" width="130" x="625" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -12,7 +12,7 @@
   </class>  
   <interface id="2" language="java" name="kalah.IOManager" project="701_A3" file="/701_A3/src/kalah/IOManager.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1054" y="810"/>    
+    <position height="-1" width="-1" x="1133" y="621"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -21,7 +21,7 @@
   </interface>  
   <class id="3" language="java" name="kalah.MankalaIOManager" project="701_A3" 
     file="/701_A3/src/kalah/MankalaIOManager.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="700" y="460"/>    
+    <position height="-1" width="-1" x="1109" y="802"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -30,7 +30,7 @@
   </class>  
   <interface id="4" language="java" name="kalah.GameRules" project="701_A3" file="/701_A3/src/kalah/GameRules.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="665" y="748"/>    
+    <position height="-1" width="-1" x="836" y="675"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -39,7 +39,7 @@
   </interface>  
   <enumeration id="5" language="java" name="kalah.Config.Property" project="701_A3" file="/701_A3/src/kalah/Config.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="388" y="1075"/>    
+    <position height="-1" width="-1" x="585" y="1016"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -48,7 +48,7 @@
   </enumeration>  
   <class id="6" language="java" name="kalah.Config" project="701_A3" file="/701_A3/src/kalah/Config.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="419" y="649"/>    
+    <position height="142" width="168" x="255" y="943"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -57,7 +57,7 @@
   </class>  
   <interface id="7" language="java" name="kalah.Board" project="701_A3" file="/701_A3/src/kalah/Board.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="106" width="274" x="545" y="1067"/>    
+    <position height="106" width="274" x="389" y="682"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -66,7 +66,7 @@
   </interface>  
   <class id="8" language="java" name="kalah.MankalaFactory" project="701_A3" 
     file="/701_A3/src/kalah/MankalaFactory.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1028" y="432"/>    
+    <position height="124" width="192" x="625" y="201"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -75,7 +75,7 @@
   </class>  
   <class id="9" language="java" name="kalah.MankalaGameBoard" project="701_A3" 
     file="/701_A3/src/kalah/MankalaGameBoard.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="124" width="242" x="44" y="37"/>    
+    <position height="124" width="242" x="286" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -84,7 +84,7 @@
   </class>  
   <class id="10" language="java" name="kalah.Player" project="701_A3" file="/701_A3/src/kalah/Player.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="178" width="174" x="44" y="1086"/>    
+    <position height="178" width="174" x="41" y="943"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -93,7 +93,7 @@
   </class>  
   <class id="11" language="java" name="kalah.StandardMakalaGameRules" project="701_A3" 
     file="/701_A3/src/kalah/StandardMakalaGameRules.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="322" width="259" x="326" y="37"/>    
+    <position height="340" width="259" x="326" y="201"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -102,7 +102,7 @@
   </class>  
   <class id="12" language="java" name="kalah.PlayerBoard" project="701_A3" file="/701_A3/src/kalah/PlayerBoard.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="285" width="186" x="46" y="399"/>    
+    <position height="285" width="186" x="79" y="201"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -111,7 +111,7 @@
   </class>  
   <class id="13" language="java" name="kalah.MankalaPlayerBoard" project="701_A3" 
     file="/701_A3/src/kalah/MankalaPlayerBoard.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="322" width="191" x="46" y="724"/>    
+    <position height="-1" width="-1" x="169" y="742"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -123,90 +123,76 @@
     <end type="TARGET" refId="4"/>  
   </realization>  
   <dependency id="15">    
+    <bendpoint x="338" y="756"/>    
     <end type="SOURCE" refId="11"/>    
     <end type="TARGET" refId="6"/>  
   </dependency>  
   <dependency id="16">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="7"/>  
-  </dependency>  
-  <dependency id="17">    
-    <bendpoint x="863" y="724"/>    
     <end type="SOURCE" refId="8"/>    
     <end type="TARGET" refId="7"/>  
   </dependency>  
-  <dependency id="18">    
+  <dependency id="17">    
     <end type="SOURCE" refId="1"/>    
     <end type="TARGET" refId="8"/>  
   </dependency>  
-  <realization id="19">    
+  <realization id="18">    
     <end type="SOURCE" refId="3"/>    
     <end type="TARGET" refId="2"/>  
   </realization>  
-  <nesting id="20">    
+  <nesting id="19">    
     <end type="SOURCE" refId="6"/>    
     <end type="TARGET" refId="5"/>  
   </nesting>  
-  <association id="21">    
+  <association id="20">    
     <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="22" name="boards"/>      
-      <multiplicity id="23" minimum="0" maximum="2147483647"/>    
+      <attribute id="21" name="boards"/>      
+      <multiplicity id="22" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="12" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <dependency id="24">    
+  <dependency id="23">    
     <end type="SOURCE" refId="3"/>    
     <end type="TARGET" refId="4"/>  
   </dependency>  
-  <dependency id="25">    
+  <dependency id="24">    
     <end type="SOURCE" refId="8"/>    
     <end type="TARGET" refId="4"/>  
   </dependency>  
-  <association id="26">    
+  <association id="25">    
     <end type="SOURCE" refId="13" navigable="false">      
-      <attribute id="27" name="player"/>      
-      <multiplicity id="28" minimum="0" maximum="1"/>    
+      <attribute id="26" name="player"/>      
+      <multiplicity id="27" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="10" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="29">    
-    <bendpoint x="262" y="399"/>    
-    <bendpoint x="288" y="724"/>    
+  <realization id="28">    
+    <bendpoint x="298" y="181"/>    
+    <bendpoint x="295" y="581"/>    
     <end type="SOURCE" refId="9"/>    
     <end type="TARGET" refId="7"/>  
   </realization>  
-  <dependency id="30">    
+  <dependency id="29">    
     <end type="SOURCE" refId="13"/>    
     <end type="TARGET" refId="6"/>  
   </dependency>  
-  <association id="31">    
-    <bendpoint x="309" y="399"/>    
-    <bendpoint x="309" y="724"/>    
+  <association id="30">    
     <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="32" name="board"/>      
-      <multiplicity id="33" minimum="0" maximum="1"/>    
+      <attribute id="31" name="board"/>      
+      <multiplicity id="32" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="7" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <dependency id="34">    
+  <dependency id="33">    
     <end type="SOURCE" refId="8"/>    
     <end type="TARGET" refId="2"/>  
   </dependency>  
-  <generalization id="35">    
+  <generalization id="34">    
     <end type="SOURCE" refId="13"/>    
     <end type="TARGET" refId="12"/>  
   </generalization>  
-  <association id="36">    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="37" name="activePlayerBoard"/>      
-      <multiplicity id="38" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="12" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    
