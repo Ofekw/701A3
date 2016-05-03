@@ -1,27 +1,30 @@
 package kalah;
 
-public interface PlayerBoard {
+public abstract class PlayerBoard implements Comparable<PlayerBoard> {
 
-	void initilise();
+	abstract void initilise();
 
-	void addSeed(int position, int count);
+	abstract void addSeed(int position, int count);
 
-	void incrementScore(int count);
+	abstract void incrementScore(int count);
 
-	void removeSeed(int position, int count);
+	abstract void removeSeed(int position, int count);
 
-	int getSeedCount(int position);
+	abstract int getSeedCount(int position);
 
-	void clearHouse(int position);
+	abstract void clearHouse(int position);
 
-	Player getPlayer();
+	abstract Player getPlayer();
 
-	int getBoardSize();
+	abstract int getBoardSize();
 
-	int getScore();
+	abstract int getScore();
 
-	int getHouseSeedCount();
+	abstract int getHouseSeedCount();
 
-	int compareTo(PlayerBoard arg0);
+	@Override
+	public int compareTo(PlayerBoard arg0) {
+		return getScore() - arg0.getScore();
+	}
 
 }

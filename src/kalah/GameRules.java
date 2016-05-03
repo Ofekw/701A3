@@ -8,7 +8,7 @@ public interface GameRules {
 	
 	public boolean calculateGameOverScore();
 	
-	public List<MankalaPlayerBoard> getWinners();
+	public List<PlayerBoard> getWinners();
 	
 	public boolean PlayTurn(int move);
 

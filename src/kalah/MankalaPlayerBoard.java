@@ -6,7 +6,7 @@ import java.util.stream.IntStream;
 
 import kalah.Config.Property;
 
-public class MankalaPlayerBoard implements Comparable<MankalaPlayerBoard>, PlayerBoard {
+public class MankalaPlayerBoard extends PlayerBoard {
 
 	private int[] board;
 	private int score;
@@ -78,9 +78,5 @@ public class MankalaPlayerBoard implements Comparable<MankalaPlayerBoard>, Playe
 		return getScore() - arg0.getScore();
 	}
 
-	@Override
-	public int compareTo(MankalaPlayerBoard arg0) {
-		return getScore() - arg0.getScore();
-	}
 
 }

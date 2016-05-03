@@ -119,7 +119,7 @@ public class StandardMakalaGameRules implements GameRules {
 		
 		@Override
 		public boolean calculateGameOverScore(){
-			List<MankalaPlayerBoard> noMoreMoves = this.board.getPlayerBoards().stream().filter( b -> b.getHouseSeedCount() == 0).collect(Collectors.toList());;
+			List<PlayerBoard> noMoreMoves = this.board.getPlayerBoards().stream().filter( b -> b.getHouseSeedCount() == 0).collect(Collectors.toList());;
 			if (noMoreMoves.size() > 0){
 				for (PlayerBoard board : this.board.getPlayerBoards()){
 					if (board.getPlayer() != noMoreMoves.get(0).getPlayer()){
@@ -132,9 +132,9 @@ public class StandardMakalaGameRules implements GameRules {
 		}
 		
 		@Override
-		public List<MankalaPlayerBoard> getWinners(){
+		public List<PlayerBoard> getWinners(){
 			int highestScore = board.getPlayerBoards().stream().mapToInt( x -> x.getScore()).max().orElse(-1);
-			List<MankalaPlayerBoard> winners = board.getPlayerBoards().stream().filter( b -> b.getScore() == highestScore).collect(Collectors.toList());
+			List<PlayerBoard> winners = board.getPlayerBoards().stream().filter( b -> b.getScore() == highestScore).collect(Collectors.toList());
 			return winners;
 		}
 		

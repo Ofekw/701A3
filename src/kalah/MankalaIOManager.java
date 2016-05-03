@@ -38,7 +38,7 @@ public class MankalaIOManager implements IOManager {
 			printBoard(rules.getBoard(), io);
 			rules.calculateGameOverScore();
 			rules.getBoard().getPlayerBoards().forEach( b -> io.println("	player "+b.getPlayer()+":"+b.getScore()));
-			List<MankalaPlayerBoard> winners = rules.getWinners();
+			List<PlayerBoard> winners = rules.getWinners();
 			if (winners.size()> 1){
 				io.println("A tie!");
 			}else{

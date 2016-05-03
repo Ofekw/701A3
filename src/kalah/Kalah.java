@@ -3,8 +3,6 @@ package kalah;
 import com.qualitascorpus.testsupport.IO;
 import com.qualitascorpus.testsupport.MockIO;
 
-import kalah.Config.Property;
-
 /**
  * This class is the starting point for the Modifiability Assignment.
  */

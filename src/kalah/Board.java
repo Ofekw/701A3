@@ -4,8 +4,8 @@ import java.util.List;
 
 public interface Board {
 
-	List<MankalaPlayerBoard> getPlayerBoards();
+	List<PlayerBoard> getPlayerBoards();
 
-	void setBoards(List<MankalaPlayerBoard> boards);
+	void setBoards(List<PlayerBoard> boards);
 
 }
