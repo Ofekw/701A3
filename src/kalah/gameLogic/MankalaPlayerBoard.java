@@ -1,9 +1,9 @@
-package kalah;
+package kalah.gameLogic;
 
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.stream.IntStream;
 
+import kalah.Config;
 import kalah.Config.Property;
 
 public class MankalaPlayerBoard extends PlayerBoard {

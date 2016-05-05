@@ -3,6 +3,9 @@ package kalah;
 import com.qualitascorpus.testsupport.IO;
 import com.qualitascorpus.testsupport.MockIO;
 
+import kalah.gameLogic.GameRules;
+import kalah.io.IOManager;
+
 /**
  * This class is the starting point for the Modifiability Assignment.
  */

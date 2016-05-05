@@ -1,4 +1,4 @@
-package kalah;
+package kalah.gameLogic;
 
 import java.util.List;
 

@@ -1,10 +1,14 @@
-package kalah;
+package kalah.io;
 
 import java.util.List;
 
 import com.qualitascorpus.testsupport.IO;
 
+import kalah.Config;
 import kalah.Config.Property;
+import kalah.gameLogic.Board;
+import kalah.gameLogic.GameRules;
+import kalah.gameLogic.PlayerBoard;
 
 public class MankalaIOManager implements IOManager {
 	

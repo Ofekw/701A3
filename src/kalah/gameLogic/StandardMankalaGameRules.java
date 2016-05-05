@@ -1,17 +1,18 @@
-package kalah;
+package kalah.gameLogic;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+import kalah.Config;
 import kalah.Config.Property;
 
-public class StandardMakalaGameRules implements GameRules {
+public class StandardMankalaGameRules implements GameRules {
 	
 	private Board board;
 	private PlayerBoard activePlayerBoard;
 
 
-	public StandardMakalaGameRules(Board board){
+	public StandardMankalaGameRules(Board board){
 		this.board = board;
 		this.activePlayerBoard = this.board.getPlayerBoards().get(0);
 	}

@@ -1,4 +1,4 @@
-package kalah;
+package kalah.gameLogic;
 
 public class Player {
 	private int playerNumber;
