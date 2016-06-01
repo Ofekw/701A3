@@ -1,32 +1,13 @@
 package kalah.gameLogic;
 
-public class Player {
-	private int playerNumber;
+public interface Player {
 	
-	public int getPlayerNumber() {
-		return playerNumber;
-	}
-
-	public void setPlayerNumber(int playerNumber) {
-		this.playerNumber = playerNumber;
-	}
-
-	public Player(int number){
-		playerNumber = number;
-	}
+	public int getPlayerIdentifier();
 	
-	 @Override
-	    public boolean equals(Object o) {
-	        if ((o instanceof Player) && (((Player) o).getPlayerNumber() == this.playerNumber)) {
-	            return true;
-	        } else {
-	            return false;
-	        }
-	    }
+	public boolean equals(Object o);
 	 
-	 @Override
-	 public String toString(){
-		 return this.playerNumber+"";
-	 }
+	public String toString();
+	
+	public void setIdentifier(int identifier);
 
 }

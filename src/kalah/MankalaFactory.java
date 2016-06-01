@@ -8,15 +8,15 @@ import kalah.gameLogic.StandardMankalaGameRules;
 import kalah.io.IOManager;
 import kalah.io.MankalaIOManager;
 
-public class MankalaFactory {
+public class MankalaFactory implements AbstractGameFactory{
 	
-	public static GameRules getGameRules(){
+	public GameRules getGameRules(){
 		Board board = new MankalaGameBoard(Config.getProperty(Property.PLAYERS));
 		GameRules gamerules = new StandardMankalaGameRules(board);
 		return gamerules;
 	}
 	
-	public static IOManager getIOManager(){
+	public IOManager getIOManager(){
 		return new MankalaIOManager();
 	}
 

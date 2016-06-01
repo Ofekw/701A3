@@ -58,7 +58,7 @@ public class MankalaIOManager implements IOManager {
 		String row1 = "", row2 = "", row3 = "", row4 = "", row5 = "";
 		
 		row1 += "+----+";
-		row2 += "| P"+pb2.getPlayer().getPlayerNumber()+" |";
+		row2 += "| P"+pb2.getPlayer().getPlayerIdentifier()+" |";
 		row3 += "|    |";
 		row4 += "| "+getFormattedScore(pb2.getScore())+" |";
 		row5 += "+----+";
@@ -74,7 +74,7 @@ public class MankalaIOManager implements IOManager {
 		row1 += "----+";
 		row2 += " "+getFormattedScore(pb1.getScore())+" |";
 		row3 += "    |";
-		row4 += " P"+pb1.getPlayer().getPlayerNumber()+" |";
+		row4 += " P"+pb1.getPlayer().getPlayerIdentifier()+" |";
 		row5 += "----+";
 		
 		io.println(row1);

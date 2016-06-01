@@ -8,7 +8,7 @@ public class MankalaGameBoard implements Board {
 	
 	public MankalaGameBoard(int boardCount){
 		for (int i = 1; i <= boardCount; i++){
-			PlayerBoard board = new MankalaPlayerBoard(new Player(i));
+			PlayerBoard board = new MankalaPlayerBoard(new BasicHumanPlayer(i));
 			this.playerBoards.add(board);
 		}
 	}

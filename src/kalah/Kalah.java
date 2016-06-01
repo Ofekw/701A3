@@ -4,6 +4,7 @@ import com.qualitascorpus.testsupport.IO;
 import com.qualitascorpus.testsupport.MockIO;
 
 import kalah.gameLogic.GameRules;
+import kalah.gameLogic.MankalaGameBoard;
 import kalah.io.IOManager;
 
 /**
@@ -14,9 +15,10 @@ public class Kalah {
 		new Kalah().play(new MockIO());
 	}
 	public void play(IO io) {
-		// Create board
-		GameRules gamerules = MankalaFactory.getGameRules();
-		IOManager ioManager = MankalaFactory.getIOManager();
+		// Create game variant factory
+		AbstractGameFactory factory = new MankalaFactory();
+		GameRules gamerules = factory.getGameRules();
+		IOManager ioManager = factory.getIOManager();
 		ioManager.runGame(gamerules, io);
 	}
 }

@@ -10,9 +10,9 @@ public class MankalaPlayerBoard extends PlayerBoard {
 
 	private int[] board;
 	private int score;
-	private Player player;
+	private BasicHumanPlayer player;
 	
-	public MankalaPlayerBoard(Player player){
+	public MankalaPlayerBoard(BasicHumanPlayer player){
 		this.player = player;
 		initilise();
 	}
@@ -54,7 +54,7 @@ public class MankalaPlayerBoard extends PlayerBoard {
 	}
 	
 	@Override
-	public Player getPlayer(){
+	public BasicHumanPlayer getPlayer(){
 		return this.player;
 	}
 	
